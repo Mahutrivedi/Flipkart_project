@@ -1,0 +1,32 @@
+body{
+text-align: center;
+
+}
+
+p{
+color: azure;
+font-weight: bolder;
+font-size: large;
+}
+
+
+.image1{
+ margin: 0px 0 0px 0;
+ width: 500px;
+ height: 150px;
+
+}
+
+.image2{
+  margin: 0px 0 0px 0;
+  width: 350px;
+  height: 350px;
+ 
+ }
+
+ .image3{
+  margin: 0px 0px 0px 0px;
+  width: 350px;
+  height: 350px;
+ 
+ }
