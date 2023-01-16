@@ -18,7 +18,7 @@ app.secret_key = "nosecret"
 def index():
     flash("Enter the link Here:")
     return render_template("index.html",
-    img_data='sshttps://raw.githubusercontent.com/Mahutrivedi/Flipkart_project/main/smiley.png',
+    img_data='thisisdeliberatelydonehttps://raw.githubusercontent.com/Mahutrivedi/Flipkart_project/main/smiley.png',
     review_image='https://raw.githubusercontent.com/Mahutrivedi/Flipkart_project/main/stars.jpg')
 
 def fig_to_base64(fig):
@@ -31,13 +31,25 @@ def fig_to_base64(fig):
 
 
 
-@app.route("/LinkVar", methods=['POST', 'GET'])
+@app.route("/Sentiment", methods=['POST', 'GET'])
 def Linker():
-    # flash("Hi, you entered " + str(request.form['link_input']) + ", as a link!")
     
     temp=request.form['link_input']
+    sep = 'marketplace=FLIPKART'
+    URL = temp.split(sep, 1)[0]
+    URL=URL.replace('/p/','/product-reviews/')
+    URL = URL+sep
 
     code = requests.get(temp)
+    new_soup = BeautifulSoup(code.content,'html.parser')
+    Name = new_soup.find_all('span',class_='B_NuCI') 
+    Name=str(Name)
+    Name=Name.split('>')
+    Name=Name[1].split('<')
+    Name=Name[0]
+    flash("Product Name: " + Name  )
+
+  
     soup = BeautifulSoup(code.content,'html.parser')
     image = soup.find_all('div',class_='CXW8mj _3nMexc')
     image=str(image).replace('1x"/></div>','')
@@ -45,7 +57,7 @@ def Linker():
     image=image.split(" ")
     Link=image[-2]
 
-    Mytemp=temp
+    Mytemp=URL
     new_code = requests.get(Mytemp)
     new_soup = BeautifulSoup(new_code.content,'html.parser')
     stars = new_soup.find_all('div',class_='_1uJVNT')
@@ -63,13 +75,10 @@ def Linker():
     results["Category"] = name
     results["% Count"] = results["Reviews"]*100/(Positive+Negative)
     results["% Count"]=results["% Count"].round(1)
-    # ax= sns.barplot(data=results,x="Reviews",y="Category",hue=results["% Count"])
-    # fig=ax.get_figure()
-    # plt.plot(fig)
 
    
     
-    # encoded_img_data =  plt.savefig(ax,dpi='figure',format='png')
+
 
     plt.legend(fontsize=20)
     fig,ax=plt.subplots(figsize=(6,6))
