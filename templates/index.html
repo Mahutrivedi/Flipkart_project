@@ -8,27 +8,31 @@
             <title>
                  Review Website 
             </title>
-        
+
+        <div class="WebsiteText">
+            <h1 class="HFirst">Review First</h1>
+            <h1 class="HSecond">Buy Later</h1>
+        </div>
+
             <link rel="stylesheet" href="{{
            url_for('static',filename='css/design.css')}}"> 
 
         </head>
 
-        <body background="https://raw.githubusercontent.com/Mahutrivedi/Flipkart_project/main/background.png">
-
-            <img src="https://raw.githubusercontent.com/Mahutrivedi/Flipkart_project/main/logo.png" class="image1">
-            
-            <form action="LinkVar" method="post">
+        <body>
+            <!-- <img src="https://raw.githubusercontent.com/Mahutrivedi/Flipkart_project/main/logo.png" class="image1"> -->
+           
+            <form action="Sentiment" method="post">
                 {% for message in get_flashed_messages() %}
                 <p >{{ message }}</p>
-                 {% endfor %}                      
+                 {% endfor %}        
+                 <div class="LinkPart"></div>
                 <input type="text" name="link_input">
                
-                <input type="submit"  value="Get Analysis" id="LinkVar" >  
-                <br>
+                <input type="submit"  value="Get Analysis" id="Sentiment" >  
+                </div>
             </form>
-            <br>
-            <br>
+           
             <img id="picture" src={{ img_data }} class="image2" onerror="this.style.display='none'"/>
             <!-- <img id="review_image" src ={{ review_image }} class="image3"> -->
             <img id="review_image" src="data:image/png;base64, {{ review_image }}" class="image3"
