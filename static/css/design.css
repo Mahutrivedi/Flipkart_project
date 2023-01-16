@@ -1,5 +1,6 @@
 body{
 text-align: center;
+background-image: url('/static/images/background.png')
 
 }
 
@@ -10,23 +11,68 @@ font-size: large;
 }
 
 
+.WebsiteText{
+background-color:  rgb(241, 139, 5);
+border-style: solid;
+border-color: rgb(241, 139, 5);
+margin: 0.5cm 12cm 0.5cm 12cm;
+
+}
+
+.HFirst
+{
+  color: whitesmoke;
+  font-family:  'Brush Script MT',cursive;
+  outline: 0cm;
+  border: 0ch;
+  content: 0ch;
+  padding: 0cm 0cm 0.3cm 0cm;
+  margin: 0pt 0pt 0pt 0pt;
+  font-weight: bolder;
+  font-size: 50px;
+
+}
+
+.HSecond
+{
+  color:whitesmoke;
+  outline: 0cm;
+  border: 0ch;
+  content: 0ch;
+  font-family: 'Brush Script MT',cursive;
+  margin: 0pt 0pt 10pt 0pt;
+  font-weight: bolder;
+  font-size: 50px;
+
+}
+
+.LinkPart
+{
+
+margin: 0.5cm 0 0.5cm 0;
+
+}
+
+
+/* 
 .image1{
  margin: 0px 0 0px 0;
  width: 500px;
  height: 150px;
 
-}
+} */
 
 .image2{
-  margin: 0px 0 0px 0;
-  width: 350px;
-  height: 350px;
+
+  margin: 0.5cm 0.5cm 0px 0;
+  width: 300px;
+  height: 300px;
  
  }
 
  .image3{
-  margin: 0px 0px 0px 0px;
-  width: 350px;
-  height: 350px;
+  margin: 0.5cm 0px 0px 0.5cm;
+  width: 300px;
+  height: 300px;
  
  }
